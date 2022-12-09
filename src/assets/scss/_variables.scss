@@ -1,0 +1,83 @@
+$dark:#000;
+$light:#fff;
+
+$light-bg: #F3F7FD;
+
+$primary: #5046BB;
+$secondary: #FF9E00;
+$heading-color: #0F0B34;
+$primary-light: #C1BDE9;
+
+// $primary: #214eb3;
+
+
+
+:root {
+    --sidebar-width: 250px ;
+    --bs-success-rgb: 82, 196, 26;
+    --dark:#{$dark};
+    --light:#{$light};
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1540px
+);
+
+@mixin transition($x...) {
+    -webkit-transition: $x;
+    -moz-transition: $x;
+    transition: $x;
+}
+
+// Variable overrides
+//Responsive Mixin
+@mixin bp($class) {
+    @if $class == xs {
+        @media (max-width: 400px){
+            @content;
+        }
+    }
+    @else if $class == sm {
+        @media (max-width: 575px){
+            @content;
+        }
+    }
+    @else if $class == md {
+        @media (max-width: 768px){
+            @content;
+        }
+    }
+    @else if $class == lg {
+        @media (max-width: 992px){
+            @content;
+        }
+    }
+    @else if $class == xl {
+        @media (max-width: 1200px){
+            @content;
+        }
+    }
+    @else if $class == xxl {
+        @media (max-width: 1500px){
+            @content;
+        }
+    }
+    @else if $class == big_screen {
+        @media (min-width: 1600px){
+            @content;
+        }
+    }
+    @else if $class == xs {
+        @media (max-width: 400px){
+            @content;
+        }
+    }
+    @else {
+        @warn "Breakpoint mixin supports only xs, sm, md, lg, xl & xxl.";
+    }
+}
